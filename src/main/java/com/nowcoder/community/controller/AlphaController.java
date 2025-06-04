@@ -100,15 +100,16 @@ public class AlphaController {
         return mav;
     }
 
-    //方法2 更简单 推荐
+    //方法2 更简单
+    //注释中的路径为客户端访问路径，即URL后的路径
     @RequestMapping(path = "/school",method = RequestMethod.GET)
     public String getSchool(Model model){//model从参数响应
         model.addAttribute("name", "浙江中医药大学");
         model.addAttribute("age", "72");
-        return "/demo/view";//返回view的路径
+        return "/demo/view";//返回view的路径，此路径为服务端查找文件所用，与客户端无关
     }
 
-    //响应JSON数据（异··1 11   ·步请求，即当前网页不刷新而返回的结果，如用户名被占用）
+    //响应JSON数据（异步请求，即当前网页不刷新而返回的结果，如用户名被占用）
     //JSON：具有特定格式的字符串，负责转化Java对象为JS对象，起到衔接作用，不仅可以转化为JS,所有都可以
 
     @RequestMapping(path = "/emp",method = RequestMethod.GET)
